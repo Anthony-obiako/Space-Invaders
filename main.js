@@ -91,6 +91,7 @@ function moveInvaders() {
     )
   ) {
     resultDisplay.innerHTML = "GAME OVER";
+    document.removeEventListener("keydown", moveShooter);
     clearInterval(invadersId);
   }
 

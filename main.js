@@ -95,9 +95,10 @@ function moveInvaders() {
   }
 
   for (let i = 0; i < alienInvaders.length; i++) {
-    if (alienInvaders[i] > squares.length) {
+    if (alienInvaders[i] === squares.length - width) {
       resultDisplay.innerHTML = "GAME OVER";
       clearInterval(invadersId);
+      document.removeEventListener("keydown", moveShooter);
     }
   }
   if (aliensRemoved.length === alienInvaders.length) {
@@ -106,7 +107,7 @@ function moveInvaders() {
     document.removeEventListener("keydown", moveShooter);
   }
 }
-invadersId = setInterval(moveInvaders, 500);
+invadersId = setInterval(moveInvaders, 300);
 
 function shoot(e) {
   let laserId;
